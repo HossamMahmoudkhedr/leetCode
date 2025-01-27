@@ -15,7 +15,7 @@ public:
         if(s.size() != t.size()){
             return false;
         }
-        unordered_map <int, int> m;
+        unordered_map <char, int> m;
         for(int i = 0; i < s.size();i++){
             m[s[i]] += 1;
         }
