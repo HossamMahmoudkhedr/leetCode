@@ -2,19 +2,18 @@ class Solution {
 public:
     string reverseVowels(string s) {
         string vowels = "aeiouAEIOU";
-        string foundVowels = "";
-        for(int i = 0; i < s.size();i++){
-            if(vowels.find(s[i]) != string::npos){
-                foundVowels += s[i];
+        int start  = 0, end = s.size()-1;
+        while(start < end){
+            while(start < end && vowels.find(s[start]) == string::npos){
+                start++;
             }
-        }
-        reverse(foundVowels.begin(), foundVowels.end());
-        int j = 0;
-        for(int i = 0; i < s.size();i++){
-            if(vowels.find(s[i]) != string::npos){
-                s[i] = foundVowels[j];
-                j++;
+            while(start < end && vowels.find(s[end]) == string::npos){
+                end--;
             }
+            swap(s[start], s[end]);
+            start++;
+            end--;
+
         }
         return s;
     }
