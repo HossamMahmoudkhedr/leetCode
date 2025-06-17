@@ -1,6 +1,24 @@
 class Solution {
 public:
     int largestAltitude(vector<int>& gain) {
+        for(int i = 0; i < gain.size()- 1; i++){
+            gain[i+1] += gain[i];
+        }
+
+        sort(gain.begin(), gain.end());
+
+        if(gain[gain.size() - 1] > 0){
+            return gain[gain.size()-1];
+        }
+
+        return 0;
+    }
+};
+
+// Another solutions
+class Solution {
+public:
+    int largestAltitude(vector<int>& gain) {
         int curr = 0;
         int maximum = 0;
         if(maximum < gain[0]){
@@ -15,9 +33,6 @@ public:
         return maximum;
     }
 };
-
-
-// Another solution
 
 class Solution {
 public:
